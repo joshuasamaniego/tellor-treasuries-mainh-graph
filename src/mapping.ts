@@ -60,7 +60,7 @@ export function handleTreasuryPaid(event: TreasuryPaid): void {
   let paidTreasury = new TreasuryPaidEntity(event.block.timestamp.toHex());
   let contract = Contract.bind(event.address);
   let totalLocked = contract.totalLocked();
-  let treasury = contract.treasury(BigInt.fromString((7).toString()));
+  let treasury = contract.treasury(BigInt.fromString((1).toString()));
   // let treasuryCount = contract.treasuryCount().toString();
   // let treasuryArray: any[] = [];
   // for (let i = 1; i <= parseInt(treasuryCount); i++) {
@@ -89,7 +89,7 @@ export function handleTreasuryPurchased(event: TreasuryPurchased): void {
   let boughtTreasury = new TreasuryPurchasedEntity(event.block.timestamp.toHex());
   let contract = Contract.bind(event.address);
   let totalLocked = contract.totalLocked();
-  let treasury = contract.treasury(BigInt.fromString((8).toString()));
+  let treasury = contract.treasury(BigInt.fromString((1).toString()));
   // let treasuryCount = contract.treasuryCount().toString();
   // let treasuryArray: any[] = [];
   // for (let i = 1; i <= parseInt(treasuryCount); i++) {
