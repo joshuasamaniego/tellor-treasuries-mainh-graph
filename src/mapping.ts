@@ -10,7 +10,7 @@ import { TreasuryIssuedEntity, TreasuryPaidEntity, TreasuryPurchasedEntity } fro
 export function handleTreasuryIssued(event: TreasuryIssued): void {
   // Entities can be loaded from the store using a string ID; this ID
   // needs to be unique across all entities of the same type
-  let issuedTreasury = new TreasuryIssuedEntity(event.block.timestamp.toHex());
+  let issuedTreasury = new TreasuryIssuedEntity(event.block.timestamp.toString());
   let contract = Contract.bind(event.address);
   let treasury = contract.treasury(event.params._id);
   let totalLocked = contract.totalLocked();
@@ -60,7 +60,7 @@ export function handleTreasuryPaid(event: TreasuryPaid): void {
   let paidTreasury = new TreasuryPaidEntity(event.block.timestamp.toHex());
   let contract = Contract.bind(event.address);
   let totalLocked = contract.totalLocked();
-  let treasury = contract.treasury(BigInt.fromString((1).toString()));
+  let treasury = contract.treasury(BigInt.fromString((7).toString()));
   // let treasuryCount = contract.treasuryCount().toString();
   // let treasuryArray: any[] = [];
   // for (let i = 1; i <= parseInt(treasuryCount); i++) {
@@ -74,11 +74,11 @@ export function handleTreasuryPaid(event: TreasuryPaid): void {
   paidTreasury.amountPaid = event.params._amount;
   paidTreasury.totalLocked = totalLocked;
   paidTreasury.timestamp = event.block.timestamp;
-  paidTreasury.dateStarted =  treasury.value0
-  paidTreasury.maxAmount =  treasury.value1
-  paidTreasury.rate =  treasury.value2
-  paidTreasury.purchasedAmount =  treasury.value3
-  paidTreasury.duration = treasury.value4
+  paidTreasury.dateStarted = treasury.value0;
+  paidTreasury.maxAmount = treasury.value1;
+  paidTreasury.rate = treasury.value2;
+  paidTreasury.purchasedAmount = treasury.value3;
+  paidTreasury.duration = treasury.value4;
   paidTreasury.endVoteCount = treasury.value5;
   paidTreasury.endVoteCountRecorded = treasury.value6;
   // paidTreasury.treasuryArray = treasuryArray;
@@ -89,7 +89,7 @@ export function handleTreasuryPurchased(event: TreasuryPurchased): void {
   let boughtTreasury = new TreasuryPurchasedEntity(event.block.timestamp.toHex());
   let contract = Contract.bind(event.address);
   let totalLocked = contract.totalLocked();
-  let treasury = contract.treasury(BigInt.fromString((1).toString()));
+  let treasury = contract.treasury(BigInt.fromString((8).toString()));
   // let treasuryCount = contract.treasuryCount().toString();
   // let treasuryArray: any[] = [];
   // for (let i = 1; i <= parseInt(treasuryCount); i++) {
@@ -103,11 +103,11 @@ export function handleTreasuryPurchased(event: TreasuryPurchased): void {
   boughtTreasury.amountBought = event.params._amount;
   boughtTreasury.totalLocked = totalLocked;
   boughtTreasury.timestamp = event.block.timestamp;
-  boughtTreasury.dateStarted =  treasury.value0
-  boughtTreasury.maxAmount =  treasury.value1
-  boughtTreasury.rate =  treasury.value2
-  boughtTreasury.purchasedAmount =  treasury.value3
-  boughtTreasury.duration = treasury.value4
+  boughtTreasury.dateStarted = treasury.value0;
+  boughtTreasury.maxAmount = treasury.value1;
+  boughtTreasury.rate = treasury.value2;
+  boughtTreasury.purchasedAmount = treasury.value3;
+  boughtTreasury.duration = treasury.value4;
   boughtTreasury.endVoteCount = treasury.value5;
   boughtTreasury.endVoteCountRecorded = treasury.value6;
   // boughtTreasury.treasuryArray = treasuryArray;
